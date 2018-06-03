@@ -1,0 +1,30 @@
+package hiro.shitanda.yuki.dao;
+
+import org.hibernate.query.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import hiro.shitanda.yuki.entity.Login;
+
+public class LoginDAOImpl implements LoginDAO {
+
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+	
+	@SuppressWarnings("unchecked") 
+	@Override
+	public Login checkUser(String user_id, String password) {
+		Session session = this.sessionFactory.openSession();
+		Query<Login> query = session.createQuery("FROM Login WHERE user_id = ? AND password = ?");
+		query.setParameter(0, user_id);
+		query.setParameter(1, password);
+		Login login = (Login)query.uniqueResult();
+		session.close();
+		
+		return login;
+	}
+
+}
