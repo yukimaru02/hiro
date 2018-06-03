@@ -42,7 +42,7 @@ public class LoginController {
 			model.addAttribute("errorMessage","ユーザーIDもしくはパスワードが異なります");
 			return "loginForm";
 		}else if((login.getUser_id()).equals("h-shitanda")){
-			loginModel = login;
+			model.addAttribute("loginModel",login); //この文がなかったので、ホーム画面でろぐいんしたユーザーIDとか取得できてなかった。
 			return "redirect:/home";
 		}else {
 			model.addAttribute("errorMessage","なかなかうまくいかないね");
