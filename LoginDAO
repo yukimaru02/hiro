@@ -1,0 +1,7 @@
+package hiro.shitanda.yuki.dao;
+
+import hiro.shitanda.yuki.entity.Login;
+
+public interface LoginDAO {
+	public 	Login checkUser(String user_id, String password);
+}
