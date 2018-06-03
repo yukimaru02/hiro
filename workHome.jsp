@@ -10,6 +10,17 @@
 <title>test</title>
 </head>
 <body>
+	<h1>― 勤怠情報管理システム ―</h1>
+	<h2>ホーム</h2>
+	<br/>
+	<form:form>
+		<input type="submit" class="menu" name="Input_work_time" value="当月の勤怠管理画面へ" />
+		<input type="submit" class="menu" name="check_work_time" value="勤怠確認画面へ" />
+	</form:form>
+
+
+
+
 	<p>ログイン成功！</p>
 	<p>${loginModel.user_id}</p>
 	<!--  -->
